@@ -67,7 +67,7 @@ spec:
             mountPath: /grafana_agent_config
         args:
           - -server.http.address=0.0.0.0:12345
-          - -config.file /grafana_agent_config/redis-standalone-v3.yml
+          - -config.file=/grafana_agent_config/redis-standalone-v3.yml
         resources:
           requests:
             cpu: 100m
