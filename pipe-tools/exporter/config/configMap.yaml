@@ -56,6 +56,18 @@ data:
         include_exporter_metrics: false
         incl_system_metrics: true
 
+  redis-standalone-v7.yml: |-
+    server:
+      log_level: info
+
+    integrations:
+      redis_exporter:
+        enabled: true
+        redis_addr: "redis://redis-standalone-v7-master.redis:6379"
+        redis_password: "weops"
+        redis_metrics_only: true
+        include_exporter_metrics: false
+        incl_system_metrics: true
 
 
   redis-cluster-v7.yml: |-
