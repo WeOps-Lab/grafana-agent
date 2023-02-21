@@ -7,10 +7,10 @@ ADD . /grafana-agent
 
 ARG GOARCH
 
-# linux x86
-RUN ls -a
+RUN go env -w GOPROXY=https://mirrors.aliyun.com/goproxy
 
-RUN BUILD_DATE=$(date +%F-%T) GOPROXY=https://goproxy.cn CGO_ENABLED=0 GOOS=linux GOARCH=$GOARCH go build -o /grafana-agent   ./cmd/grafana-agent
+# linux x86
+RUN BUILD_DATE=$(date +%F-%T) CGO_ENABLED=0 GOOS=linux GOARCH=$GOARCH go build -o /grafana-agent   ./cmd/grafana-agent
 
 RUN [ "$GOARCH" = $GOARCH ]  && /grafana-agent -version || ls -la /grafana-agent
 
