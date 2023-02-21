@@ -19,6 +19,8 @@ for version in "${redis_versions[@]}"; do
       --set master.persistence.enabled=false \
       --set persistence.enabled=false \
       --set architecture=$architecture \
+      --set master.livenessProbe.enabled=false \
+      --set master.readinessProbe.enabled=false \
       --set master.sidecars[0].name=redis-benchmark \
       --set master.sidecars[0].image=redislabs/memtier_benchmark:1.4.0 \
       --set master.sidecars[0].imagePullPolicy=IfNotPresent \
