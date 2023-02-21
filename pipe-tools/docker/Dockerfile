@@ -10,8 +10,9 @@ ARG GOARCH
 RUN go env -w GOPROXY=https://goproxy.cn
 
 # linux x86
-RUN BUILD_DATE=$(date +%F-%T) CGO_ENABLED=0 GOOS=linux GOARCH=$GOARCH go build -o /grafana-agent \
-    -ldflags  "-s -w -extldflags \"-static\"  -X main.BuildDate=$BUILD_DATE" ./cmd/grafana-agent
+RUN ls -a
+
+RUN BUILD_DATE=$(date +%F-%T) CGO_ENABLED=0 GOOS=linux GOARCH=$GOARCH go build -o /grafana-agent   ./cmd/grafana-agent
 
 RUN [ "$GOARCH" = $GOARCH ]  && /grafana-agent -version || ls -la /grafana-agent
 
