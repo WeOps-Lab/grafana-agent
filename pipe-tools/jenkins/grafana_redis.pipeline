@@ -19,7 +19,7 @@ pipeline {
         stage('重新部署监控对象') {
             steps {
                 dir('pipe-tools/charts') {
-                    sh "helm ls --namespace redis | grep redis | awk '{print $1}' | xargs -I {} helm delete --purge {}"
+                    sh "bash helm_uninstall.sh"
                     sleep 3
                     sh 'bash helm_install.sh'
                 }
