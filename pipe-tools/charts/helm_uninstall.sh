@@ -10,4 +10,4 @@ NAMESPACE="redis"
 #  helm uninstall -n $NAMESPACE $RELEASE
 #done
 
-helm ls --namespace $NAMESPACE | grep redis | awk '{print $1}' | xargs -I {} helm delete --purge {}
+helm ls --namespace redis --short | xargs -L1 helm uninstall --namespace $NAMESPACE
