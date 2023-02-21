@@ -33,7 +33,6 @@ pipeline {
         }
 
 
-
         stage('推送镜像') {
             steps {
                 sh 'docker push registry-svc:25000/library/grafana/agent:latest'

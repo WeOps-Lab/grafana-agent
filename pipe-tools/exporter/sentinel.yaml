@@ -66,6 +66,7 @@ spec:
           - name: grafana-redis-config
             mountPath: /grafana_agent_config
         args:
+          - -server.http.address=0.0.0.0:12345
           - -config.file /grafana_agent_config/redis-sentinel-v7.yml
         resources:
           requests:
