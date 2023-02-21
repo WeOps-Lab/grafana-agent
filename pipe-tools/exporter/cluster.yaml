@@ -39,7 +39,7 @@ spec:
 
           [[inputs.procstat]]
           ## pattern as argument for pgrep (ie, pgrep -f <pattern>)
-            pattern = "exporter"
+            pattern = "grafana-agent"
         telegraf.influxdata.com/class: opentsdb
         telegraf.influxdata.com/env-fieldref-NAMESPACE: metadata.namespace
         telegraf.influxdata.com/limits-cpu: '300m'
