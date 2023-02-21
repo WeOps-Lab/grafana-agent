@@ -27,7 +27,7 @@ pipeline {
 
         stage('构建镜像') {
             steps {
-                sh 'make agent-image'
+                sh 'make AGENT_IMAGE=registry-svc:25000/library/grafana/agent:latest agent-image'
             }
         }
 
@@ -44,6 +44,7 @@ pipeline {
                     sh 'kubectl replace --force -f cluster.yaml -n redis'
                     sh 'kubectl replace --force -f sentinel.yaml -n redis'
                     sh 'kubectl replace --force -f ./standalone -n redis'
+                    sh 'kubectl replace --force -f ./config -n redis'
                     }
                 }
             }
