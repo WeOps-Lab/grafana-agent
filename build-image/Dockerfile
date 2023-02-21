@@ -24,6 +24,8 @@ FROM golang:1.20.0-bullseye as golang
 # Keep in sync with cmd/grafana-agent-operator/DEVELOPERS.md
 ENV CONTROLLER_GEN_VERSION v0.9.2
 
+RUN go env -w GOPROXY=https://goproxy.cn
+
 RUN go install sigs.k8s.io/controller-tools/cmd/controller-gen@$CONTROLLER_GEN_VERSION \
  && go install github.com/mitchellh/gox@v1.0.1                                         \
  && go install github.com/tcnksm/ghr@v0.15.0                                           \
