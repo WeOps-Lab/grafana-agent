@@ -2,8 +2,8 @@
 # build container
 #
 FROM --platform=linux/amd64 golang:1.19-alpine as builder
-WORKDIR /
-ADD . /
+WORKDIR /grafana-agent
+ADD . /grafana-agent
 
 ARG GOARCH
 
