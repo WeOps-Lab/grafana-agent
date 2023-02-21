@@ -130,7 +130,6 @@ require (
 	github.com/prometheus/prometheus v1.99.0
 	github.com/prometheus/snmp_exporter v0.20.1-0.20220111173215-83399c23888f
 	github.com/prometheus/statsd_exporter v0.22.8
-	github.com/prometheus/tsdb v0.7.1
 	github.com/rancher/k3d/v5 v5.2.2
 	github.com/rfratto/ckit v0.0.0-20220401221852-009169323240
 	github.com/rs/cors v1.8.3
@@ -679,3 +678,5 @@ exclude (
 )
 
 replace github.com/github/smimesign => github.com/grafana/smimesign v0.2.1-0.20220408144937-2a5adf3481d3
+
+replace github.com/oliver006/redis_exporter/exporter => github.com/WeOps-Lab/redis_exporter v0.0.0-20230221020142-14c11f2024f8
