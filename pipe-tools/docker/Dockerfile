@@ -10,6 +10,7 @@ ARG GOARCH
 RUN go env -w GOPROXY=https://goproxy.cn
 
 # linux x86
+RUN apk add make
 RUN make agent
 
 RUN [ "$GOARCH" = $GOARCH ]  && /grafana-agent -version || ls -la /grafana-agent
