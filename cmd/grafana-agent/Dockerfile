@@ -26,6 +26,7 @@ RUN --mount=type=cache,target=/root/.cache/go-build \
     GOOS=$TARGETOS GOARCH=$TARGETARCH GOARM=${TARGETVARIANT#v} \
     RELEASE_BUILD=${RELEASE_BUILD} VERSION=${VERSION} \
     GO_TAGS="builtinassets promtail_journal_enabled" \
+    go env -w GOPROXY=https://goproxy.cn \
     make agent
 
 FROM ubuntu:jammy
